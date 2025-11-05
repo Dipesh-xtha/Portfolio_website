@@ -279,6 +279,8 @@ nav .container {
     width: 100%;
     display: block;
     transition: transform 0.4s ease;
+    aspect-ratio: 3 / 2;  
+    object-fit: cover;
 }
 
 .portfolio-item:hover img {
@@ -286,18 +288,23 @@ nav .container {
 }
 
 .portfolio-overlay {
-    position: absolute;
+  position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 123, 255, 0.8);
     color: var(--light-text-color);
+    
+    /* === NAYA CHANGES HARU YINAI HO: Text lai center ma lyaune === */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: center; /* Text alignment fix garcha */
+    padding: 1rem; /* Charai tira padding dincha taki text side ma na-janos */
+    /* ========================================================== */
+
     opacity: 0;
     transition: opacity 0.4s ease;
 }
@@ -307,8 +314,11 @@ nav .container {
 }
 
 .portfolio-overlay h3 {
-    font-size: 1.8rem;
+   font-size: 1.8rem;
     margin-bottom: 0.5rem;
+    /* Word break fix garnalai: */
+    word-break: break-word; 
+    max-width: 90%; 
 }
 
 .portfolio-overlay a {
