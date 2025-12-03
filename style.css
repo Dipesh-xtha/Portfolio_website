@@ -322,6 +322,23 @@ nav .container {
     line-height: 50px;
     border-radius: 50%;
 }
+/* ================= NEW: Case Studies Section Styles ================= */
+#casestudies {
+    background-color: #f0f4f8; /* Light blue tint to differentiate */
+}
+
+/* Specific styling for the Case Study Action Button */
+#casestudies .portfolio-overlay a {
+    background: #fff;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+#casestudies .portfolio-overlay a:hover {
+    transform: rotate(-45deg); /* Arrow tilt effect */
+    background: var(--secondary-color);
+    color: #fff;
+}
 
 /* ================= Contact Section ================= */
 #contact {

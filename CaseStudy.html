@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vigorous Hospital - UX Case Study</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- UPDATED: Google Fonts - Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* UPDATED: Font Family set to Roboto */
+        body { font-family: 'Roboto', sans-serif; }
+        
+        .teal-primary { color: #0E4D5F; }
+        .bg-teal-primary { background-color: #0E4D5F; }
+        .bg-teal-light { background-color: #E0F2F7; }
+        .bg-pink-light { background-color: #FDF2F8; }
+        .border-pink-accent { border-color: #FBCFE8; }
+        
+        /* For the Tree Diagram */
+        .tree ul {
+            padding-top: 20px; position: relative;
+            transition: all 0.5s;
+            display: flex; justify-content: center;
+        }
+        .tree li {
+            float: left; text-align: center;
+            list-style-type: none;
+            position: relative;
+            padding: 20px 5px 0 5px;
+            transition: all 0.5s;
+        }
+        /* Connectors */
+        .tree li::before, .tree li::after {
+            content: ''; position: absolute; top: 0; right: 50%;
+            border-top: 2px solid #CBD5E1; width: 50%; height: 20px;
+        }
+        .tree li::after {
+            right: auto; left: 50%; border-left: 2px solid #CBD5E1;
+        }
+        .tree li:only-child::after, .tree li:only-child::before {
+            display: none;
+        }
+        .tree li:only-child{ padding-top: 0;}
+        .tree li:first-child::before, .tree li:last-child::after{
+            border: 0 none;
+        }
+        .tree li:last-child::before{
+            border-right: 2px solid #CBD5E1;
+            border-radius: 0 5px 0 0;
+        }
+        .tree li:first-child::after{
+            border-radius: 5px 0 0 0;
+        }
+        .tree ul ul::before{
+            content: ''; position: absolute; top: 0; left: 50%;
+            border-left: 2px solid #CBD5E1; width: 0; height: 20px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-slate-800">
+
+    <!-- SLIDE 1: Project Overview -->
+    <section class="max-w-6xl mx-auto my-10 p-10 bg-white shadow-xl rounded-2xl border-t-8 border-[#0E4D5F]">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Left: Title & Info -->
+            <div>
+                <div class="border-l-4 border-red-500 pl-4 mb-6">
+                    <h1 class="text-5xl font-bold text-[#0E4D5F] mb-2">Vigorous Hospital</h1>
+                    <h2 class="text-2xl text-slate-500 font-light">Humanizing Healthcare in the Digital Age</h2>
+                </div>
+                <p class="text-lg text-slate-600 leading-relaxed mb-8">
+                    A compassionate, transparent, and user-centric hospital website designed to bridge the gap between patients and medical care in Nepal. Focused on reducing anxiety through clarity and accessibility.
+                </p>
+
+                <div class="grid grid-cols-3 gap-6 mb-8">
+                    <div>
+                        <h4 class="font-bold text-[#0E4D5F]">My Role</h4>
+                        <p class="text-sm">Lead UI/UX Designer</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-[#0E4D5F]">Duration</h4>
+                        <p class="text-sm">4 Weeks</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-[#0E4D5F]">Type</h4>
+                        <p class="text-sm">Responsive Web</p>
+                    </div>
+                </div>
+
+                <!-- Design Process -->
+                <div>
+                    <h3 class="font-bold text-[#0E4D5F] mb-4 text-lg border-b pb-2">Design Process</h3>
+                    <div class="flex justify-between text-center text-sm">
+                        <div class="flex flex-col items-center">
+                            <div class="w-10 h-10 rounded-full bg-teal-100 text-[#0E4D5F] flex items-center justify-center mb-2"><i class="fas fa-heart"></i></div>
+                            <span>Empathize</span>
+                        </div>
+                        <div class="border-t-2 border-dashed border-gray-300 w-8 mt-5"></div>
+                        <div class="flex flex-col items-center">
+                            <div class="w-10 h-10 rounded-full bg-teal-100 text-[#0E4D5F] flex items-center justify-center mb-2"><i class="fas fa-bullseye"></i></div>
+                            <span>Define</span>
+                        </div>
+                        <div class="border-t-2 border-dashed border-gray-300 w-8 mt-5"></div>
+                        <div class="flex flex-col items-center">
+                            <div class="w-10 h-10 rounded-full bg-teal-100 text-[#0E4D5F] flex items-center justify-center mb-2"><i class="fas fa-lightbulb"></i></div>
+                            <span>Ideate</span>
+                        </div>
+                        <div class="border-t-2 border-dashed border-gray-300 w-8 mt-5"></div>
+                        <div class="flex flex-col items-center">
+                            <div class="w-10 h-10 rounded-full bg-teal-100 text-[#0E4D5F] flex items-center justify-center mb-2"><i class="fas fa-pen-nib"></i></div>
+                            <span>Design</span>
+                        </div>
+                        <div class="border-t-2 border-dashed border-gray-300 w-8 mt-5"></div>
+                        <div class="flex flex-col items-center">
+                            <div class="w-10 h-10 rounded-full bg-teal-100 text-[#0E4D5F] flex items-center justify-center mb-2"><i class="fas fa-check-circle"></i></div>
+                            <span>Validate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Timeline -->
+            <div class="bg-gray-50 p-8 rounded-xl border border-gray-200">
+                <h3 class="font-bold text-[#0E4D5F] mb-6 text-xl">Project Timeline</h3>
+                <div class="space-y-6 relative border-l-2 border-teal-200 pl-6 ml-2">
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1 w-4 h-4 bg-[#0E4D5F] rounded-full ring-4 ring-white"></div>
+                        <h4 class="font-bold">Week 1</h4>
+                        <p class="text-sm text-slate-600">Research & Competitor Analysis</p>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1 w-4 h-4 bg-teal-400 rounded-full ring-4 ring-white"></div>
+                        <h4 class="font-bold">Week 2</h4>
+                        <p class="text-sm text-slate-600">User Personas & Site Mapping</p>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1 w-4 h-4 bg-teal-300 rounded-full ring-4 ring-white"></div>
+                        <h4 class="font-bold">Week 3</h4>
+                        <p class="text-sm text-slate-600">Wireframing & Visual Direction</p>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1 w-4 h-4 bg-teal-200 rounded-full ring-4 ring-white"></div>
+                        <h4 class="font-bold">Week 4</h4>
+                        <p class="text-sm text-slate-600">High-Fidelity Design & Prototyping</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 2: Problem Statement -->
+    <section class="max-w-6xl mx-auto my-10 p-10 bg-white shadow-xl rounded-2xl">
+        <div class="border-l-4 border-red-500 pl-4 mb-8">
+            <h2 class="text-3xl font-bold text-[#0E4D5F]">Problem Statement</h2>
+            <p class="text-slate-600 mt-2 max-w-3xl">Patients in Nepal often face opaque pricing, difficult booking processes, and anxiety-inducing interfaces when trying to access healthcare. Existing hospital sites lack empathy and functional clarity.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <!-- Patient -->
+            <div class="bg-red-50 p-6 rounded-xl border border-red-100">
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-8 h-8 rounded bg-red-100 text-red-500 flex items-center justify-center"><i class="fas fa-user-injured"></i></div>
+                    <h3 class="font-bold text-slate-800">Patient Challenges</h3>
+                </div>
+                <ul class="space-y-3 text-sm text-slate-600">
+                    <li class="flex gap-2"><i class="fas fa-times text-red-400 mt-1"></i> <span><strong>Hidden Costs:</strong> No visibility on consultation fees (NPR).</span></li>
+                    <li class="flex gap-2"><i class="fas fa-times text-red-400 mt-1"></i> <span><strong>Complex Nav:</strong> Hard to find specialists or Emergency info.</span></li>
+                    <li class="flex gap-2"><i class="fas fa-times text-red-400 mt-1"></i> <span><strong>Lack of Trust:</strong> Generic photos create hesitation.</span></li>
+                </ul>
+            </div>
+
+            <!-- Doctor -->
+            <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-8 h-8 rounded bg-blue-100 text-blue-500 flex items-center justify-center"><i class="fas fa-user-md"></i></div>
+                    <h3 class="font-bold text-slate-800">Doctor Challenges</h3>
+                </div>
+                <ul class="space-y-3 text-sm text-slate-600">
+                    <li class="flex gap-2"><i class="fas fa-times text-blue-400 mt-1"></i> <span><strong>Scheduling:</strong> Manual booking leads to double-booking.</span></li>
+                    <li class="flex gap-2"><i class="fas fa-times text-blue-400 mt-1"></i> <span><strong>Low Visibility:</strong> Poor profile pages for skilled doctors.</span></li>
+                </ul>
+            </div>
+
+            <!-- Admin -->
+            <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-8 h-8 rounded bg-gray-200 text-gray-500 flex items-center justify-center"><i class="fas fa-hospital"></i></div>
+                    <h3 class="font-bold text-slate-800">Admin Challenges</h3>
+                </div>
+                <ul class="space-y-3 text-sm text-slate-600">
+                    <li class="flex gap-2"><i class="fas fa-times text-gray-400 mt-1"></i> <span><strong>Call Volume:</strong> Overwhelmed by basic questions.</span></li>
+                    <li class="flex gap-2"><i class="fas fa-times text-gray-400 mt-1"></i> <span><strong>Data Fragmentation:</strong> Records not easily accessible.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Unified Solution -->
+        <div class="bg-[#0E4D5F] text-white p-8 rounded-xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 opacity-10 text-9xl -mr-10 -mt-10"><i class="fas fa-check"></i></div>
+            <h3 class="text-xl font-bold mb-6">The Unified Solution</h3>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="bg-white/10 p-4 rounded backdrop-blur-sm">
+                    <i class="fas fa-tag mb-2 text-teal-200"></i>
+                    <h4 class="font-bold text-sm">Transparent Pricing</h4>
+                    <p class="text-xs text-teal-100 mt-1">Upfront fees displayed on cards.</p>
+                </div>
+                <div class="bg-white/10 p-4 rounded backdrop-blur-sm">
+                    <i class="fas fa-clock mb-2 text-teal-200"></i>
+                    <h4 class="font-bold text-sm">Real-Time Availability</h4>
+                    <p class="text-xs text-teal-100 mt-1">"Available Today" indicators.</p>
+                </div>
+                <div class="bg-white/10 p-4 rounded backdrop-blur-sm">
+                    <i class="fas fa-heart mb-2 text-teal-200"></i>
+                    <h4 class="font-bold text-sm">Empathetic UI</h4>
+                    <p class="text-xs text-teal-100 mt-1">Calming colors & human copy.</p>
+                </div>
+                <div class="bg-white/10 p-4 rounded backdrop-blur-sm">
+                    <i class="fas fa-mouse-pointer mb-2 text-teal-200"></i>
+                    <h4 class="font-bold text-sm">Seamless Booking</h4>
+                    <p class="text-xs text-teal-100 mt-1">3-click flow, no login wall.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 3: Research & Insights -->
+    <section class="max-w-6xl mx-auto my-10 p-10 bg-white shadow-xl rounded-2xl">
+        <div class="border-l-4 border-red-500 pl-4 mb-8">
+            <h2 class="text-3xl font-bold text-[#0E4D5F]">User Research</h2>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <!-- Demographics -->
+            <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
+                <h3 class="text-[#0E4D5F] font-bold mb-4">Demographics</h3>
+                <ul class="space-y-2 text-slate-700">
+                    <li><span class="w-24 inline-block font-semibold text-slate-500">Age:</span> 25–65 Years</li>
+                    <li><span class="w-24 inline-block font-semibold text-slate-500">Location:</span> Kathmandu Valley & Provinces</li>
+                    <li><span class="w-24 inline-block font-semibold text-slate-500">Tech Lit:</span> Mixed (High to Low)</li>
+                </ul>
+            </div>
+             <!-- Needs -->
+             <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
+                <h3 class="text-[#0E4D5F] font-bold mb-4">User Needs</h3>
+                <ul class="space-y-2 text-slate-700">
+                    <li class="flex gap-2"><i class="fas fa-bolt text-yellow-500 mt-1"></i> "I need a doctor now, not next week."</li>
+                    <li class="flex gap-2"><i class="fas fa-question-circle text-blue-500 mt-1"></i> "Does this hospital take my insurance?"</li>
+                    <li class="flex gap-2"><i class="fas fa-shield-alt text-green-500 mt-1"></i> "Is this doctor qualified?"</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Pink Insights -->
+        <div class="bg-pink-50 p-8 rounded-2xl border border-pink-100">
+            <h3 class="text-pink-600 font-bold mb-6 text-lg"><i class="fas fa-lightbulb mr-2"></i>Key Insights</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-5 rounded-lg shadow-sm border-l-4 border-pink-400">
+                    <h4 class="font-bold text-slate-800 mb-2">Anxiety Drivers</h4>
+                    <p class="text-sm text-slate-600">Users are stressed. The UI must be calming, not cluttered.</p>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-sm border-l-4 border-pink-400">
+                    <h4 class="font-bold text-slate-800 mb-2">The "Trust" Metric</h4>
+                    <p class="text-sm text-slate-600">Users trust faces over logos. Profiles need headshots & reviews.</p>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-sm border-l-4 border-pink-400">
+                    <h4 class="font-bold text-slate-800 mb-2">Mobile First</h4>
+                    <p class="text-sm text-slate-600">70% of users access the site while in transit to the hospital.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SLIDE 4: Visual Identity & Design System -->
+    <section class="max-w-6xl mx-auto my-10 p-10 bg-white shadow-xl rounded-2xl">
+        <div class="border-l-4 border-red-500 pl-4 mb-8">
+            <h2 class="text-3xl font-bold text-[#0E4D5F]">Visual Identity & Design System</h2>
+            <p class="text-slate-600">A clean, approachable system built on Trust (Teal) and Warmth (Orange).</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            
+            <!-- Typography Section -->
+            <div>
+                <h3 class="text-xl font-bold text-[#0E4D5F] mb-6 border-b pb-2">Typography: Roboto</h3>
+                <div class="space-y-8">
+                    <!-- Hero Text -->
+                    <div>
+                        <div class="flex items-end justify-between mb-1">
+                            <span class="text-xs text-slate-400 font-mono">Hero Text (Bold)</span>
+                            <span class="text-xs text-slate-400 font-mono">56px</span>
+                        </div>
+                        <p style="font-size: 56px; line-height: 1.1; font-weight: 700;" class="text-slate-900">Health is Happiness</p>
+                    </div>
+                    
+                    <!-- Sub Heading -->
+                    <div>
+                        <div class="flex items-end justify-between mb-1">
+                            <span class="text-xs text-slate-400 font-mono">Section Heading (Bold)</span>
+                            <span class="text-xs text-slate-400 font-mono">32px</span>
+                        </div>
+                        <p style="font-size: 32px; font-weight: 700;" class="text-[#0E4D5F]">Core Commitment</p>
+                    </div>
+
+                    <!-- Body Text -->
+                    <div>
+                        <div class="flex items-end justify-between mb-1">
+                            <span class="text-xs text-slate-400 font-mono">Body Text (Regular)</span>
+                            <span class="text-xs text-slate-400 font-mono">18px</span>
+                        </div>
+                        <p style="font-size: 18px; font-weight: 400;" class="text-slate-600">We are dedicated to providing compassionate, patient-centered care through clinical excellence.</p>
+                    </div>
+
+                    <!-- Micro Content -->
+                    <div>
+                        <div class="flex items-end justify-between mb-1">
+                            <span class="text-xs text-slate-400 font-mono">Micro Content (Regular)</span>
+                            <span class="text-xs text-slate-400 font-mono">16px</span>
+                        </div>
+                        <p style="font-size: 16px; font-weight: 400;" class="text-slate-500">Available Today • 4.9 Rating</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Color Palette Section -->
+            <div>
+                <h3 class="text-xl font-bold text-[#0E4D5F] mb-6 border-b pb-2">Color Palette</h3>
+                
+                <div class="space-y-6">
+                    <!-- Primary Palette -->
+                    <div>
+                        <h4 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-3">Primary Colors (Trust)</h4>
+                        <div class="grid grid-cols-2 gap-4">
+                            <!-- Dark Teal -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-16 h-16 rounded-full shadow-lg bg-[#0E4D5F]"></div>
+                                <div>
+                                    <p class="font-bold text-slate-800">Deep Teal</p>
+                                    <p class="font-mono text-xs text-slate-500">#0E4D5F</p>
+                                    <p class="text-xs text-slate-400 mt-1">Headings, Buttons</p>
+                                </div>
+                            </div>
+                            <!-- Light Teal -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-16 h-16 rounded-full shadow-lg bg-[#E0F2F7]"></div>
+                                <div>
+                                    <p class="font-bold text-slate-800">Soft Cyan</p>
+                                    <p class="font-mono text-xs text-slate-500">#E0F2F7</p>
+                                    <p class="text-xs text-slate-400 mt-1">Backgrounds</p>
+                                </div>
+                            </div>
+                             <!-- Mid Teal -->
+                             <div class="flex items-center gap-4">
+                                <div class="w-16 h-16 rounded-full shadow-lg bg-[#2D8FA6]"></div>
+                                <div>
+                                    <p class="font-bold text-slate-800">Mid Teal</p>
+                                    <p class="font-mono text-xs text-slate-500">#2D8FA6</p>
+                                    <p class="text-xs text-slate-400 mt-1">Accents</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Secondary Palette -->
+                    <div>
+                        <h4 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-3 mt-4">Secondary Colors (Warmth)</h4>
+                        <div class="grid grid-cols-2 gap-4">
+                            <!-- Warm Brown/Orange -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-16 h-16 rounded-full shadow-lg bg-[#D97706]"></div>
+                                <div>
+                                    <p class="font-bold text-slate-800">Warm Amber</p>
+                                    <p class="font-mono text-xs text-slate-500">#D97706</p>
+                                    <p class="text-xs text-slate-400 mt-1">Highlights</p>
+                                </div>
+                            </div>
+                            <!-- Soft Beige -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-16 h-16 rounded-full shadow-lg bg-[#FEF3C7]"></div>
+                                <div>
+                                    <p class="font-bold text-slate-800">Cream</p>
+                                    <p class="font-mono text-xs text-slate-500">#FEF3C7</p>
+                                    <p class="text-xs text-slate-400 mt-1">Cards</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SLIDE 5 & 6: Personas (Side by Side) -->
+    <section class="max-w-6xl mx-auto my-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Persona 1 -->
+        <div class="bg-white p-8 shadow-xl rounded-2xl border-t-8 border-teal-600">
+            <div class="flex items-center gap-4 mb-6">
+                <div class="w-20 h-20 bg-gray-200 rounded-full overflow-hidden">
+                    <img src="https://ui-avatars.com/api/?name=Nisha+S&background=0E4D5F&color=fff" alt="Nisha">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-slate-800">Nisha Shrestha</h3>
+                    <p class="text-sm text-slate-500">32 • Marketing Manager • High Tech Comfort</p>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <div class="bg-teal-50 p-4 rounded-lg">
+                    <h4 class="font-bold text-[#0E4D5F] text-sm mb-2">GOALS</h4>
+                    <ul class="text-sm text-slate-700 list-disc ml-4 space-y-1">
+                        <li>Book cardiologist for father immediately.</li>
+                        <li>Find parking & wheelchair access.</li>
+                        <li>Pay digitally.</li>
+                    </ul>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg">
+                    <h4 class="font-bold text-red-600 text-sm mb-2">PAIN POINTS</h4>
+                    <ul class="text-sm text-slate-700 list-disc ml-4 space-y-1">
+                        <li>Hates being put on hold.</li>
+                        <li>Worried about hidden charges.</li>
+                        <li>Frustrated by outdated schedules.</li>
+                    </ul>
+                </div>
+                <p class="italic text-slate-500 text-sm mt-4">"My father is unwell. I need a website that acts like a concierge—quick, clear, and reassuring."</p>
+            </div>
+        </div>
+
+        <!-- Persona 2 -->
+        <div class="bg-white p-8 shadow-xl rounded-2xl border-t-8 border-slate-500">
+            <div class="flex items-center gap-4 mb-6">
+                <div class="w-20 h-20 bg-gray-200 rounded-full overflow-hidden">
+                    <img src="https://ui-avatars.com/api/?name=Ram+K&background=64748b&color=fff" alt="Ram">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-slate-800">Ram Kumar</h3>
+                    <p class="text-sm text-slate-500">55 • Government Officer • Low Tech Comfort</p>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <div class="bg-gray-100 p-4 rounded-lg">
+                    <h4 class="font-bold text-slate-700 text-sm mb-2">GOALS</h4>
+                    <ul class="text-sm text-slate-700 list-disc ml-4 space-y-1">
+                        <li>Find specialist for knee pain.</li>
+                        <li>Read reviews to see if doctor is friendly.</li>
+                        <li>Find phone number easily.</li>
+                    </ul>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg">
+                    <h4 class="font-bold text-red-600 text-sm mb-2">PAIN POINTS</h4>
+                    <ul class="text-sm text-slate-700 list-disc ml-4 space-y-1">
+                        <li>Lost in complex menus.</li>
+                        <li>Small fonts are hard to read.</li>
+                        <li>Afraid of booking the wrong thing.</li>
+                    </ul>
+                </div>
+                <p class="italic text-slate-500 text-sm mt-4">"I want to handle my health myself without asking my children. I need a simple way to see a doctor."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 7: Information Architecture -->
+    <section class="max-w-6xl mx-auto my-10 p-10 bg-white shadow-xl rounded-2xl">
+        <div class="border-l-4 border-red-500 pl-4 mb-8">
+            <h2 class="text-3xl font-bold text-[#0E4D5F]">Information Architecture</h2>
+        </div>
+
+        <div class="tree overflow-x-auto pb-8">
+            <ul>
+                <li>
+                    <div class="bg-[#0E4D5F] text-white px-6 py-3 rounded-lg font-bold shadow-md">HOME</div>
+                    <ul>
+                        <li>
+                            <div class="bg-teal-100 px-4 py-2 rounded shadow-sm text-sm font-semibold mb-2">Search / Emergency</div>
+                        </li>
+                        <li>
+                            <div class="bg-teal-50 px-4 py-2 rounded border border-teal-200 text-sm font-semibold mb-2">About Us</div>
+                        </li>
+                        <li>
+                            <div class="bg-teal-50 px-4 py-2 rounded border border-teal-200 text-sm font-semibold mb-2">Services</div>
+                            <ul>
+                                <li>
+                                    <div class="bg-white border px-3 py-1 rounded text-xs">Centers of Excellence</div>
+                                </li>
+                                <li>
+                                    <div class="bg-white border px-3 py-1 rounded text-xs">Telehealth</div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="bg-teal-50 px-4 py-2 rounded border border-teal-200 text-sm font-semibold mb-2">Doctors</div>
+                            <ul>
+                                <li>
+                                    <div class="bg-white border px-3 py-1 rounded text-xs">Filter by Specialty</div>
+                                </li>
+                                <li>
+                                    <div class="bg-white border px-3 py-1 rounded text-xs">Doctor Profile</div>
+                                </li>
+                                <li>
+                                    <div class="bg-white border px-3 py-1 rounded text-xs">Booking Modal</div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="bg-teal-50 px-4 py-2 rounded border border-teal-200 text-sm font-semibold mb-2">Patient Resources</div>
+                            <ul>
+                                <li>
+                                    <div class="bg-white border px-3 py-1 rounded text-xs">Portal Login</div>
+                                </li>
+                                <li>
+                                    <div class="bg-white border px-3 py-1 rounded text-xs">Bill Pay</div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="bg-teal-50 px-4 py-2 rounded border border-teal-200 text-sm font-semibold mb-2">Contact</div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SLIDE 8: User Flow -->
+    <section class="max-w-6xl mx-auto my-10 p-10 bg-white shadow-xl rounded-2xl mb-20">
+        <div class="border-l-4 border-red-500 pl-4 mb-8">
+            <h2 class="text-3xl font-bold text-[#0E4D5F]">User Flow: The "Find & Book" Journey</h2>
+            <p class="text-slate-600">Goal: Minimize friction between "I feel sick" and "Appointment Confirmed".</p>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 mt-10 overflow-x-auto">
+            
+            <!-- Step 1 -->
+            <div class="flex flex-col items-center min-w-[150px]">
+                <div class="w-12 h-12 rounded-full bg-slate-100 border-2 border-slate-300 flex items-center justify-center mb-3">
+                    <i class="fas fa-home text-slate-500"></i>
+                </div>
+                <div class="bg-white border border-slate-200 p-3 rounded-lg shadow-sm text-center w-full">
+                    <h4 class="font-bold text-xs uppercase text-slate-400">Entry</h4>
+                    <p class="text-sm font-semibold">Home Page</p>
+                </div>
+            </div>
+
+            <i class="fas fa-arrow-right text-slate-300 hidden md:block"></i>
+            <i class="fas fa-arrow-down text-slate-300 md:hidden"></i>
+
+            <!-- Step 2 -->
+            <div class="flex flex-col items-center min-w-[150px]">
+                <div class="w-12 h-12 rounded-full bg-teal-50 border-2 border-teal-200 flex items-center justify-center mb-3">
+                    <i class="fas fa-search text-teal-600"></i>
+                </div>
+                <div class="bg-white border border-teal-200 p-3 rounded-lg shadow-sm text-center w-full">
+                    <h4 class="font-bold text-xs uppercase text-teal-600">Action</h4>
+                    <p class="text-sm font-semibold">Search "Pain"</p>
+                </div>
+            </div>
+
+            <i class="fas fa-arrow-right text-slate-300 hidden md:block"></i>
+            <i class="fas fa-arrow-down text-slate-300 md:hidden"></i>
+
+            <!-- Step 3 -->
+            <div class="flex flex-col items-center min-w-[150px]">
+                <div class="w-12 h-12 rounded-full bg-teal-50 border-2 border-teal-200 flex items-center justify-center mb-3">
+                    <i class="fas fa-filter text-teal-600"></i>
+                </div>
+                <div class="bg-white border border-teal-200 p-3 rounded-lg shadow-sm text-center w-full">
+                    <h4 class="font-bold text-xs uppercase text-teal-600">Decision</h4>
+                    <p class="text-sm font-semibold">Filter: "Today"</p>
+                </div>
+            </div>
+
+            <i class="fas fa-arrow-right text-slate-300 hidden md:block"></i>
+            <i class="fas fa-arrow-down text-slate-300 md:hidden"></i>
+
+            <!-- Step 4 -->
+            <div class="flex flex-col items-center min-w-[150px]">
+                <div class="w-12 h-12 rounded-full bg-[#0E4D5F] text-white flex items-center justify-center mb-3">
+                    <i class="fas fa-mouse-pointer"></i>
+                </div>
+                <div class="bg-[#0E4D5F] text-white p-3 rounded-lg shadow-md text-center w-full">
+                    <h4 class="font-bold text-xs uppercase text-teal-200">Selection</h4>
+                    <p class="text-sm font-semibold">Book Appt.</p>
+                </div>
+            </div>
+
+            <i class="fas fa-arrow-right text-slate-300 hidden md:block"></i>
+            <i class="fas fa-arrow-down text-slate-300 md:hidden"></i>
+
+            <!-- Step 5 -->
+            <div class="flex flex-col items-center min-w-[150px]">
+                <div class="w-12 h-12 rounded-full bg-green-50 border-2 border-green-200 flex items-center justify-center mb-3">
+                    <i class="fas fa-check text-green-600"></i>
+                </div>
+                <div class="bg-white border border-green-200 p-3 rounded-lg shadow-sm text-center w-full">
+                    <h4 class="font-bold text-xs uppercase text-green-600">Success</h4>
+                    <p class="text-sm font-semibold">SMS Confirm</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>
