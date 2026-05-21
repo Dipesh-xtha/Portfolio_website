@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-teal-dark: #0E4D5F;
+  --color-teal-mid: #2D8FA6;
+  --color-teal-light: #E0F2F7;
+  --color-amber-warm: #D97706;
+  --color-cream: #FEF3C7;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-glass-bg: var(--glass-bg);
+  --color-glass-border: var(--glass-border);
+  --font-sans: var(--font-outfit), sans-serif;
+}
+
+:root {
+  --background: #f4f5f7;
+  /* Slightly cooler off-white for bento grid background */
+  --foreground: #111827;
+  /* Near black */
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  /* More opaque for light mode */
+  --glass-border: rgba(255, 255, 255, 0.6);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-outfit), sans-serif;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism Utilities strictly supporting contrast */
+.glass-panel {
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.05);
+  /* Softer drop shadow for light theme */
+}
+
+/* Fallback for prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
