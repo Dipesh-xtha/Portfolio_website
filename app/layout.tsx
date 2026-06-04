@@ -14,8 +14,8 @@ export const metadata: Metadata = {
   description: "Creative and detail-oriented UI/UX Designer skilled in building intuitive interfaces and translating user needs into effective designs.",
   icons: {
     icon: "/favicon.ico",
-    shortcut: "/logo_monogram.png",
-    apple: "/logo_monogram.png",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
   },
 };
 
